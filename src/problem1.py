@@ -3,13 +3,13 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Robert Kreft.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -64,6 +64,22 @@ def run_test_problem1():
 
 
 def problem1(square, thickness, window):
+    window1=window
+    square1=square
+    square1.attach_to(window1)
+    x=square1.center.x
+    y=square1.center.y+square1.length_of_each_side
+    r=square1.length_of_each_side/2.0
+    circle1=rg.Circle(rg.Point(x,y),r)
+    circle1.fill_color=square1.fill_color
+    circle1.outline_thickness=thickness
+    circle1.attach_to(window1)
+    line1=rg.Line(rg.Point(square1.center.x-square1.length_of_each_side/2.0,square1.center.y),circle1.center)
+    line1.thickness=thickness
+    line1.color=square1.outline_color
+    line1.attach_to(window1)
+    window1.render()
+
     """
     See   problem1_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -101,7 +117,7 @@ def problem1(square, thickness, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
 
